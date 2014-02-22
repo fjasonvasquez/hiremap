@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221225528) do
+ActiveRecord::Schema.define(version: 20140221234813) do
+
+  create_table "startup_jobs", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "salary_min"
+    t.integer  "salary_max"
+    t.decimal  "equity_min"
+    t.decimal  "equity_max"
+    t.string   "angellist_url"
+    t.integer  "startup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "startup_jobs", ["startup_id"], name: "index_startup_jobs_on_startup_id"
+
+  create_table "startup_offices", force: true do |t|
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "state_code"
+    t.string   "country_code"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "startups", force: true do |t|
     t.datetime "created_at"
