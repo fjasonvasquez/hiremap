@@ -10,4 +10,10 @@ initialize = ->
 
 		map = new google.maps.Map document.getElementById('map-canvas'), mapOptions
 
+	onBoundsChanged = ->
+		bounds = map.getBounds()
+		console.log("https://api.hiremap.com/startups?sw[0]=#{bounds.ga.b}&sw[1]=#{bounds.ta.b}&ne[0]=#{bounds.ga.d}&ne[1]=#{bounds.ta.d}")
+
+	google.maps.event.addListener window, 'bounds_changed', onBoundsChanged
+
 google.maps.event.addDomListener window, 'load', initialize

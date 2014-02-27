@@ -35,6 +35,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'pry'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
